@@ -4,7 +4,7 @@ const materias_objs=[
         inicio:"23/03/2022",
         comision:"K1093",
         parciales:[
-            {fecha:"2312",descr:"1er parcial",tipo:"parcial",nota:"9",resultado:"Aprobado"},
+            {fecha:"2312",descr:"1º parcial",tipo:"Parcial",nota:"9",resultado:"Aprobado"},
             //aca van los demas parciales
         ]
       },

@@ -13,6 +13,15 @@ aprobadas_checkBox.addEventListener("click")
 desaprobadas_checkBox.addEventListener("click")
 enCurso_checkBox.addEventListener("click");*/
 
+let materias_container=document.getElementById("listado");
 
-let onpage=set_materias("en_curso",false);
-console.log(onpage);
+let onpage=set_materias("promocionadas",true);
+materias_container.innerHTML=onpage;
+
+
+/*---------TODO----------------
+-Poner html de inicio si ho hay ninguna mat
+-Hacer bien las funciones del checkbox
+
+
+*/

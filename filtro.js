@@ -14,7 +14,6 @@ let materias_onPage=[];
 let materias_inFiltro=[];
 
 let html_2insert="";
-//let algun obj al cual haya que meterselo
 
 
 function add(onPage_arr,filtro_arr){
@@ -65,6 +64,7 @@ function remove(onPage_arr,filtro_arr){
 
 
 let html_toInsert;
+let materia_data;
 function set_materias(filtro_id,on){
     
     materias_inFiltro=filtros[filtro_id];
@@ -79,7 +79,8 @@ function set_materias(filtro_id,on){
     html_toInsert="";
 
     for (let mat_name of materias_onPage){
-        html_toInsert+=parse_html(materias_objs[mat_name])
+        materia_data=materias_objs[mat_name];
+        html_toInsert+=parse_html(materia_data);
     }
     
     return html_toInsert;

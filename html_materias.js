@@ -63,7 +63,7 @@ function parse_html(mat_data){
     }
     
     else{ //Si no, mostramos este msje
-        table_full="<p>No hay informacion sobre evaluaciones"
+        table_full="<p>No hay informacion sobre evaluaciones</p>"
     }
     
     //Juntamos las partes de todo

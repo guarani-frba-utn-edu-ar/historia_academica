@@ -1,27 +1,39 @@
 import { set_materias } from "./filtro.js";
 
-/*Asignar funciones a los html objs
+let afterFiltro_hmtl;
 
+function apply_filtros(filtro_id,on){
+    afterFiltro_hmtl=set_materias(filtro_id,on);
+    
+    materias_container.innerHTML=afterFiltro_hmtl;
+     
+      
+}
+
+
+let materias_container=document.getElementById("listado");
+
+//Tomar checkboxes
 let promocionadas_checkBox=document.getElementById("cursadasPromocionadas");
 let aprobadas_checkBox=document.getElementById("cursadasAprobadas");
 let desaprobadas_checkBox=document.getElementById("cursadasDesaprobadas");
 let ausente_checkBox=document.getElementById("cursadasAusentes");
 let enCurso_checkBox=document.getElementById("enCurso");
 
-promocionadas_checkBox.addEventListener("click");
-aprobadas_checkBox.addEventListener("click")
-desaprobadas_checkBox.addEventListener("click")
-enCurso_checkBox.addEventListener("click");*/
+//Asignarles la funcion correspóndiente
+promocionadas_checkBox.addEventListener("click",(e)=>{apply_filtros("promocionadas",e.target.checked)});
+aprobadas_checkBox.addEventListener("click",(e)=>{apply_filtros("aprobadas",e.target.checked)})
+desaprobadas_checkBox.addEventListener("click",(e)=>{apply_filtros("desaprobadas",e.target.checked)})
+ausente_checkBox.addEventListener("click",(e)=>{apply_filtros("ausente",e.target.checked)});
+enCurso_checkBox.addEventListener("click",(e)=>{apply_filtros("en_curso",e.target.checked)});
 
-let materias_container=document.getElementById("listado");
-
-let onpage=set_materias("promocionadas",true);
-materias_container.innerHTML=onpage;
 
 
 /*---------TODO----------------
 -Poner html de inicio si ho hay ninguna mat
--Hacer bien las funciones del checkbox
+-Personalizar headers de arriba, si es en curso aprobada o promocionada
+-Hacer una function u obj especifico segun de q tipo sea (en curso,aprobada,etc) para parsear
+-bien los headers. Despues el contenido de la tabla es el mismo para todos
 
 
 */

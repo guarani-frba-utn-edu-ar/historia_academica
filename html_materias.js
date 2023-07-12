@@ -33,9 +33,7 @@ function parse_html(mat_data){
     let all_html="";
     
     //llenar start
-    let gen_start=`<div class="catedras" materia="87"><h3 class="titulo-corte">${mat_data.name} (082021)</h3><div class="catedra" encurso="Aprobado"><div class="catedra_nombre"><span class=""><strong>En curso </strong> - Inicio de dictado ${mat_data.inicio}  <strong>(Vencida)</strong> - <a href="#" id="1" data-origen="EnCurso">Cerrar</a></span></div><div class="toggle_info_catedra" id="mat_1" style=""><div id="info_det_1">
-    
-    Comisión: ${mat_data.comision}`
+    let gen_start=parse_start(mat_data.type,mat_data.inicio_data)
     
     let table_full=""
     //Si ya hay examenes, llenamos la tabla

@@ -37,3 +37,22 @@ enCurso_checkBox.addEventListener("click",(e)=>{apply_filtros("en_curso",e.targe
 
 
 */
+
+/*----------- ATTRS A AGREGAR -------------
+
+//----- Generales ------
+
+  //En el inicio:
+    -Numero entre () despues del nombre de la mat
+
+  //Dentro de la parte de examenes
+    -Periodo lectivo: anual/cuat y año (arriba de comision) (solo lo ponemos si hay examenes) (osea la encurso q no tienen no lo ponemos)
+
+//Particulares:
+  //En el inicio:
+    -Tipo (En curso,Promocion,Regularidad)
+    -Tipo para la fecha de q se hizo (Inicio de dictado,Promocionado,Aprobado,Reprobado,Ausente)
+    -Libro (para todos menos "en curso")
+    -Folio (para todos menos "en curso")
+
+*/

@@ -84,7 +84,6 @@ function set_materias(filtro_id,on){
     }
     
     return html_toInsert;
-    //return materias_onPage;
 }
 
 export {set_materias};

@@ -1,3 +1,5 @@
+import { parseStart_functions } from "./materias.js";
+
 //Parte de parciales
 //------ Inicio de class tabla -------
 const table_start=`<table class="table table-condensed table-bordered table-optativas">
@@ -26,23 +28,39 @@ const table_start=`<table class="table table-condensed table-bordered table-opta
 const table_end="</tbody></table>"
 
 //----- Final de la materia "general" -----
-const gen_end="</div></div></div></div>"
+//const gen_end="</div></div></div></div>"
+const gen_end="</div></div>"
 
-
-function parse_html(mat_data){
+function parse_start(mat_data){
     let all_html="";
     
     //llenar start
-    let gen_start=parse_start(mat_data.type,mat_data.inicio_data)
+    let partic_parse_start=parseStart_functions[mat_data.type];
+    let gen_start=partic_parse_start(mat_data.key_name,mat_data.start_data);
     
+    //Juntamos las partes de todo
+    all_html+=gen_start+gen_end;
+    
+    return all_html;
+
+    
+}
+
+function parse_exams(mat_data,exams){
+    let all_html;
+    let head=`<div class="toggle_info_catedra" id="mat_1" style=""><div id="info_det_1">
+    
+  Periodo Lectivo:${mat_data.periodo_lectivo} <br> Comisión: ${mat_data.comision}`;
+    let end=`</div></div>`
+
     let table_full=""
     //Si ya hay examenes, llenamos la tabla
-    if (mat_data.examenes.length!=0){
+    if (exams.length!=0){
        table_full+="<h5>Evaluaciones parciales:</h5>";
     
        //por cada mat_data.examenes
        let table_data=""
-       for (let exam of mat_data.examenes){
+       for (let exam of exams){
            table_data+=`<tr>
           <td>${exam.fecha}</td>
           <td>${exam.descr}</td>
@@ -63,13 +81,10 @@ function parse_html(mat_data){
     else{ //Si no, mostramos este msje
         table_full="<p>No hay informacion sobre evaluaciones</p>"
     }
-    
-    //Juntamos las partes de todo
-    all_html+=gen_start+table_full+gen_end;
-    
-    return all_html;
 
-    
+    all_html=head+table_full+end;
+
+    return all_html;
 }
 
-export {parse_html};
+export {parse_start,parse_exams};

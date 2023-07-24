@@ -1,13 +1,45 @@
 import { set_materias } from "./filtro.js";
+import { materias_objs } from "./materias.js";
+import {exams_objs} from "./examenes.js";
+import { parse_start,parse_exams } from "./html_materias.js";
 
-let afterFiltro_hmtl;
+window.show_hide_exams=show_hide_exams;
 
+let afterFiltro_mats=[];
+let materia_data;
 function apply_filtros(filtro_id,on){
-    afterFiltro_hmtl=set_materias(filtro_id,on);
+    afterFiltro_mats=set_materias(filtro_id,on);
     
-    materias_container.innerHTML=afterFiltro_hmtl;
+    let html_toInsert="";
+
+    for (let mat_name of afterFiltro_mats){
+        materia_data=materias_objs[mat_name];
+        html_toInsert+=parse_start(materia_data);
+    }
+    
+    materias_container.innerHTML=html_toInsert;
      
       
+}
+
+function show_hide_exams(mat_name){
+    //Traemos el exam container de la materia
+    let exams_div=document.getElementById(`${mat_name}_exams`);
+    
+    let html_toInsert;
+  
+    if (exams_div.innerHTML==""){
+      materia_data=materias_objs[mat_name];
+      
+      let exams=exams_objs[materia_data.key_name]
+      
+      html_toInsert=parse_exams(materia_data.start_data,exams)
+    }
+    else{
+      html_toInsert="";
+    }
+
+    exams_div.innerHTML=html_toInsert;
 }
 
 
@@ -31,9 +63,16 @@ enCurso_checkBox.addEventListener("click",(e)=>{apply_filtros("en_curso",e.targe
 
 /*---------TODO----------------
 -Poner html de inicio si ho hay ninguna mat
--Personalizar headers de arriba, si es en curso aprobada o promocionada
--Hacer una function u obj especifico segun de q tipo sea (en curso,aprobada,etc) para parsear
--bien los headers. Despues el contenido de la tabla es el mismo para todos
+
+-Implementar la funcion general de parseStart:
+ -Hacer todas iguales siguiendo la que dice promocionada(tras cambio metido por lo de exams) 
+ -Hacer bien las diferencias de c/u
+ -Meter los attrs q faltan como folio y libro, etc
+
+-Hacer todo un toq mas prolijo
+
+-Completar los datos de las mats
+-Ordenar alfabeticamente el arr q devuelve el filtro
 
 
 */
@@ -52,7 +91,16 @@ enCurso_checkBox.addEventListener("click",(e)=>{apply_filtros("en_curso",e.targe
   //En el inicio:
     -Tipo (En curso,Promocion,Regularidad)
     -Tipo para la fecha de q se hizo (Inicio de dictado,Promocionado,Aprobado,Reprobado,Ausente)
+    -nota_gen (para promocion, y aprobado) (es la nota promedio con la q se paso)
     -Libro (para todos menos "en curso")
     -Folio (para todos menos "en curso")
+
+*/
+
+/*------ Separacion de tabla de exams ---------
+A partir del div de "togle info catedra" empiezan las notas
+que incluyen lo de periodo lectivo y comision.(si es que hay algo)
+Para cerrar la parte de exams se necesitan los 2 primeros divs de los de gen_end.
+
 
 */

@@ -1,12 +1,10 @@
-import { materias_objs } from "./materias.js";
-import {parse_html} from "./html_materias.js";
 
 const filtros={
-    "promocionadas":["analisis_1","algebra"],
+    "promocionadas":["analisis_1"],
     "aprobadas":["analisis_1"],
     "desaprobadas":[],
     "ausente":[],
-    "en_curso":["ingles","analisis_2","sintaxis_y_semantica"]
+    "en_curso":["fisica_1"]
 }
 
 //Materias que estan en la pagina
@@ -76,14 +74,7 @@ function set_materias(filtro_id,on){
         materias_onPage=remove(materias_onPage,materias_inFiltro)
     }
     
-    html_toInsert="";
-
-    for (let mat_name of materias_onPage){
-        materia_data=materias_objs[mat_name];
-        html_toInsert+=parse_html(materia_data);
-    }
-    
-    return html_toInsert;
+    return materias_onPage;
 }
 
 export {set_materias};

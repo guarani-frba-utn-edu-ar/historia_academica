@@ -2,24 +2,35 @@ import { set_materias } from "./filtro.js";
 import { materias_objs } from "./materias.js";
 import {exams_objs} from "./examenes.js";
 import { parse_start,parse_exams } from "./html_materias.js";
+import { set_html_menuInicial,set_html_filtroAño, remove_html_filtroAño } from "./html_fijos.js";
 
 window.show_hide_exams=show_hide_exams;
+
 
 let afterFiltro_mats=[];
 let materia_data;
 function apply_filtros(filtro_id,on){
     afterFiltro_mats=set_materias(filtro_id,on);
     
-    let html_toInsert="";
+    //Si se esta usando alguno de los filtros
+    if (afterFiltro_mats.length!=0){
+      set_html_filtroAño();
+      
+      let html_mats="";
 
-    for (let mat_name of afterFiltro_mats){
-        materia_data=materias_objs[mat_name];
-        html_toInsert+=parse_start(materia_data);
+      for (let mat_name of afterFiltro_mats){
+         materia_data=materias_objs[mat_name];
+         html_mats+=parse_start(materia_data);
     }
     
-    materias_container.innerHTML=html_toInsert;
-     
-      
+    materias_container.innerHTML=html_mats;
+    }
+    
+    //Si no se esta usando ninguno
+    else{
+      remove_html_filtroAño();
+      set_html_menuInicial(materias_container);
+    }
 }
 
 function show_hide_exams(mat_name){
@@ -27,14 +38,18 @@ function show_hide_exams(mat_name){
     let exams_div=document.getElementById(`${mat_name}_exams`);
     
     let html_toInsert;
-  
+    
+    //Si el div de los exams de la mat no tiene nada, significa que la accion es para mostar(show)
     if (exams_div.innerHTML==""){
       materia_data=materias_objs[mat_name];
       
       let exams=exams_objs[materia_data.key_name]
+      if (!exams){exams=[]};
       
       html_toInsert=parse_exams(materia_data.start_data,exams)
     }
+    
+    //Si tiene algo(osea que se hizo el "show" antes) la accion es para ocultar(hide)
     else{
       html_toInsert="";
     }
@@ -42,8 +57,12 @@ function show_hide_exams(mat_name){
     exams_div.innerHTML=html_toInsert;
 }
 
-
+//div donde van las materias
 let materias_container=document.getElementById("listado");
+
+//Inicialmente sacamos el filtro año y mostramos el menu inicial(comportamiento de la pag original)
+remove_html_filtroAño();
+set_html_menuInicial(materias_container);
 
 //Tomar checkboxes
 let promocionadas_checkBox=document.getElementById("cursadasPromocionadas");
@@ -62,18 +81,15 @@ enCurso_checkBox.addEventListener("click",(e)=>{apply_filtros("en_curso",e.targe
 
 
 /*---------TODO----------------
--Poner html de inicio si ho hay ninguna mat
-
--Implementar la funcion general de parseStart:
- -Hacer todas iguales siguiendo la que dice promocionada(tras cambio metido por lo de exams) 
- -Hacer bien las diferencias de c/u
- -Meter los attrs q faltan como folio y libro, etc
-
 -Hacer todo un toq mas prolijo
 
 -Completar los datos de las mats
--Ordenar alfabeticamente el arr q devuelve el filtro
 
+-Hacer que no se vaya la pag para arriba al mostarr una mat de abajo
+
+-Solucionar que desaparezcan las materias al sacar un filtro(aun perteneciendo a otro activo)
+
+-Hacer q se puedan ver los iconos que faltan
 
 */
 

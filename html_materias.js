@@ -1,6 +1,28 @@
 import { parseStart_functions } from "./materias.js";
 
-//Parte de parciales
+//------------------------ PARTE DE DATA GENERAL DE LA MATERIA --------------------
+
+//----- Final de la materia "general" -----
+const gen_end="</div></div>"
+
+function parse_start(mat_data){
+    let all_html="";
+    
+    //Tomamos la funcion segun el tipo de materia
+    let partic_parse_start=parseStart_functions[mat_data.type];
+    
+    //llenamos el start
+    let gen_start=partic_parse_start(mat_data.key_name,mat_data.start_data);
+    
+    //Juntamos las partes de todo
+    all_html+=gen_start+gen_end;
+    
+    return all_html;
+
+    
+}
+
+//----------------- PARTE DE EXAMENES DE CADA MATERIA-----------------------------------
 //------ Inicio de class tabla -------
 const table_start=`<table class="table table-condensed table-bordered table-optativas">
             <tbody><tr>
@@ -27,25 +49,6 @@ const table_start=`<table class="table table-condensed table-bordered table-opta
 //----- Final de class tabla -----
 const table_end="</tbody></table>"
 
-//----- Final de la materia "general" -----
-//const gen_end="</div></div></div></div>"
-const gen_end="</div></div>"
-
-function parse_start(mat_data){
-    let all_html="";
-    
-    //llenar start
-    let partic_parse_start=parseStart_functions[mat_data.type];
-    let gen_start=partic_parse_start(mat_data.key_name,mat_data.start_data);
-    
-    //Juntamos las partes de todo
-    all_html+=gen_start+gen_end;
-    
-    return all_html;
-
-    
-}
-
 function parse_exams(mat_data,exams){
     let all_html;
     let head=`<div class="toggle_info_catedra" id="mat_1" style=""><div id="info_det_1">
@@ -54,7 +57,8 @@ function parse_exams(mat_data,exams){
     let end=`</div></div>`
 
     let table_full=""
-    //Si ya hay examenes, llenamos la tabla
+    
+    //Si hay examenes disponibles, hacemos la tabla
     if (exams.length!=0){
        table_full+="<h5>Evaluaciones parciales:</h5>";
     
@@ -78,7 +82,7 @@ function parse_exams(mat_data,exams){
        table_full+=table_start+table_data+table_end;
     }
     
-    else{ //Si no, mostramos este msje
+    else{ //Si no, mostramos este msje en su lugar
         table_full="<p>No hay informacion sobre evaluaciones</p>"
     }
 

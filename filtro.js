@@ -1,17 +1,16 @@
 
 const filtros={
-    "promocionadas":["analisis_1"],
+    "promocionadas":["analisis_1","algoritmos","arquitectura","ing_y_soc","discreta","sis_y_org","quimica"],
     "aprobadas":["analisis_1"],
     "desaprobadas":[],
     "ausente":[],
-    "en_curso":["fisica_1"]
+    "en_curso":["fisica_1","ingles_1","analisis_de_sist","analisis_2","sintax_y_semant"]
 }
 
 //Materias que estan en la pagina
 let materias_onPage=[];
 let materias_inFiltro=[];
 
-let html_2insert="";
 
 
 function add(onPage_arr,filtro_arr){
@@ -47,7 +46,7 @@ function remove(onPage_arr,filtro_arr){
     for (let i of filtro_arr){
         let filtro_mat=i;
 
-        for (let j=0;j<onPage_arr.length;i++){
+        for (let j=0;j<onPage_arr.length;j++){
             let onPage_mat=onPage_arr[j];
             
             //Si esta en onPage_arr, la sacamos 
@@ -61,10 +60,8 @@ function remove(onPage_arr,filtro_arr){
 }
 
 
-let html_toInsert;
-let materia_data;
 function set_materias(filtro_id,on){
-    
+    console.log("hola");
     materias_inFiltro=filtros[filtro_id];
     
     if (on){
@@ -73,8 +70,8 @@ function set_materias(filtro_id,on){
     else{
         materias_onPage=remove(materias_onPage,materias_inFiltro)
     }
-    
-    return materias_onPage;
+    //alert("hi")
+    return materias_onPage.sort();
 }
 
 export {set_materias};

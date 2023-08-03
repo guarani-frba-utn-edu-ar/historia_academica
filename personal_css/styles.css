@@ -1,0 +1,23 @@
+/*-----------------  Css que usamos para personalizar los elementos q agregamos nosotros--------------*/
+
+/*-----------  Button de 'show_hide_exams' --------*/
+.showHide_exams_btn{
+  background: none;
+  border:none;
+  color: #c42145;
+  font-size: 13px;
+}
+
+.showHide_exams_btn:hover{
+  text-decoration: underline;
+  color: #08c;
+};
+
+/*.loading{
+  position: absolute;
+  top: 20px;
+  left:500px;
+  width: 80px;
+  height: 40px;
+  background-color: yellow;
+}*/

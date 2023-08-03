@@ -140,7 +140,7 @@ const materias_objs=
         type:"en_curso",
         key_name:"analisis_de_sist",
         start_data:{
-          name:"Analsis de Sistemas",
+          name:"Analisis de Sistemas",
           num_id:"951701",
           nota_gen:undefined, //8 (OCHO)
           fecha:"15/03/2023",
@@ -182,8 +182,10 @@ const materias_objs=
     },
 }
 
+//<a href="#" id="1" onclick="show_hide_exams('${name}')" data-origen="EnCurso">Cerrar</a>
+//<p onclick="show_hide_exams('${name}')">Detalle</p>
 function promocionada_parseStart(name,data){
-  let start_html=`<div class="catedras" materia="87"><h3 class="titulo-corte">${data.name} (${data.num_id})</h3><div class="catedra" encurso="Aprobado"><div class="catedra_nombre"><span class=""><strong>Promocion </strong> - ${data.nota_gen} - Promocionado ${data.fecha} - Libro ${data.libro} - Folio - ${data.folio}  <strong></strong> - <a href="#" id="1" onclick="show_hide_exams('${name}')" data-origen="EnCurso">Cerrar</a></span></div>
+  let start_html=`<div class="catedras" materia="87"><h3 class="titulo-corte">${data.name} (${data.num_id})</h3><div class="catedra" encurso="Aprobado"><div class="catedra_nombre"><span class=""><strong>Promocion </strong> - ${data.nota_gen} - Promocionado ${data.fecha} - Libro ${data.libro} - Folio - ${data.folio}  <strong></strong> - <button class="showHide_exams_btn" onclick="show_hide_exams('${name}')">Detalle</button></span></div>
   <div id="${name}_exams"></div>`
   
   return start_html;
@@ -191,7 +193,7 @@ function promocionada_parseStart(name,data){
 
 
 function aprobada_parseStart(name,data){
-  let start_html=`<div class="catedras" materia="87"><h3 class="titulo-corte">${data.name} (${data.num_id})</h3><div class="catedra" encurso="Aprobado"><div class="catedra_nombre"><span class=""><strong>Regularidad </strong> - ${data.nota_gen} - Aprobado ${data.fecha} - Libro ${data.libro} - Folio - ${data.folio}  <strong></strong> - <a href="#" id="1" onclick="show_hide_exams('${name}')" data-origen="EnCurso">Cerrar</a></span></div>
+  let start_html=`<div class="catedras" materia="87"><h3 class="titulo-corte">${data.name} (${data.num_id})</h3><div class="catedra" encurso="Aprobado"><div class="catedra_nombre"><span class=""><strong>Regularidad </strong> - ${data.nota_gen} - Aprobado ${data.fecha} - Libro ${data.libro} - Folio - ${data.folio}  <strong></strong> - <button class="showHide_exams_btn" onclick="show_hide_exams('${name}')">Detalle</button></span></div>
   <div id="${name}_exams"></div>`
   
   return start_html;
@@ -199,7 +201,7 @@ function aprobada_parseStart(name,data){
 
 
 function enCurso_parseStart(name,data){
-  let start_html=`<div class="catedras" materia="87"><h3 class="titulo-corte">${data.name} (${data.num_id})</h3><div class="catedra" encurso="Aprobado"><div class="catedra_nombre"><span class=""><strong>En curso </strong> - Inicio de dictado ${data.fecha}  <strong></strong> - <a href="#" id="1" onclick="show_hide_exams('${name}')" data-origen="EnCurso">Cerrar</a></span></div>
+  let start_html=`<div class="catedras" materia="87"><h3 class="titulo-corte">${data.name} (${data.num_id})</h3><div class="catedra" encurso="Aprobado"><div class="catedra_nombre"><span class=""><strong>En curso </strong> - Inicio de dictado ${data.fecha}  <strong></strong> - <button class="showHide_exams_btn" onclick="show_hide_exams('${name}')">Detalle</button></span></div>
   <div id="${name}_exams"></div>`
   
   return start_html;

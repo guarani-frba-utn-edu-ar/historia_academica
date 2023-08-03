@@ -31,6 +31,7 @@ function apply_filtros(filtro_id,on){
       remove_html_filtroAño();
       set_html_menuInicial(materias_container);
     }
+
 }
 
 function show_hide_exams(mat_name){
@@ -47,15 +48,17 @@ function show_hide_exams(mat_name){
       if (!exams){exams=[]};
       
       html_toInsert=parse_exams(materia_data.start_data,exams)
+
     }
     
-    //Si tiene algo(osea que se hizo el "show" antes) la accion es para ocultar(hide)
+    //Si tiene algo(osea que se hizo el "show" antes), la accion es para ocultar(hide)
     else{
       html_toInsert="";
     }
-
+    
     exams_div.innerHTML=html_toInsert;
 }
+
 
 //div donde van las materias
 let materias_container=document.getElementById("listado");
@@ -64,7 +67,7 @@ let materias_container=document.getElementById("listado");
 remove_html_filtroAño();
 set_html_menuInicial(materias_container);
 
-//Tomar checkboxes
+//Tomar checkboxes del filtro
 let promocionadas_checkBox=document.getElementById("cursadasPromocionadas");
 let aprobadas_checkBox=document.getElementById("cursadasAprobadas");
 let desaprobadas_checkBox=document.getElementById("cursadasDesaprobadas");
@@ -83,9 +86,7 @@ enCurso_checkBox.addEventListener("click",(e)=>{apply_filtros("en_curso",e.targe
 /*---------TODO----------------
 -Hacer todo un toq mas prolijo
 
--Completar los datos de las mats
-
--Hacer que no se vaya la pag para arriba al mostarr una mat de abajo
+-Poner el coso de cargando. (meter un div dentro del div "navbar user-navbar clearfix")
 
 -Solucionar que desaparezcan las materias al sacar un filtro(aun perteneciendo a otro activo)
 

@@ -51,7 +51,11 @@ const exams_objs={
 
     "sintax_y_semant":[
         {fecha:"14/07/2022",descr:"1° Parcial",tipo:"Parcial",nota:"9 (NUEVE)",resultado:"Aprobado"},
-    ]
+    ],
+
+    "paradigmas_prog":[],
+
+    "ingles_2":[]
 }
 
 export {exams_objs};

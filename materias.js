@@ -180,6 +180,40 @@ const materias_objs=
           comision:"K2064"
         },
     },
+
+    "paradigmas_prog":{
+      type:"en_curso",
+      key_name:"paradigmas_prog",
+      start_data:{
+        name:"Paradigmas de Programacion",
+        num_id:"952422",
+        nota_gen:undefined, //8 (OCHO)
+        fecha:"24/07/2023",
+        libro:undefined,
+        folio:undefined,
+        periodo_lectivo:"Grado Segundo Cuatrimestre 2023",
+        comision:"K2144"
+      },
+  },
+
+  "ingles_2":{
+    type:"en_curso",
+    key_name:"ingles_2",
+    start_data:{
+      name:"Ingles Tecnico II",
+      num_id:"951603",
+      nota_gen:undefined, //8 (OCHO)
+      fecha:"24/07/2023",
+      libro:undefined,
+      folio:undefined,
+      periodo_lectivo:"Grado Segundo Cuatrimestre 2023",
+      comision:"Z3673"
+    },
+},
+
+
+
+    
 }
 
 //<a href="#" id="1" onclick="show_hide_exams('${name}')" data-origen="EnCurso">Cerrar</a>

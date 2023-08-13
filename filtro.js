@@ -4,7 +4,7 @@ const filtros={
     "aprobadas":["analisis_1"],
     "desaprobadas":[],
     "ausente":[],
-    "en_curso":["fisica_1","ingles_1","analisis_de_sist","analisis_2","sintax_y_semant"]
+    "en_curso":["fisica_1","ingles_1","analisis_de_sist","analisis_2","sintax_y_semant","paradigmas_prog","ingles_2"]
 }
 
 //Materias que estan en la pagina

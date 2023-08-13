@@ -1,3 +1,5 @@
+import {sleep} from "./helpers.js";
+
 const menu_inicial=`<div class="alert cuadro_consultas_habituales"><h4>Consultas habituales:</h4><ul class="js-consultas_habituales"><li><a href="#" consulta="mats_en_curso">Materias en curso</a></li><li><a href="#" consulta="mats_aprobadas">Materias aprobadas</a></li><li><a href="#" consulta="curs_aprobadas">Cursadas aprobadas</a></li><li><a href="#" consulta="todo">Historia completa</a></li></ul></div>
 <div class="alert cuadro_mensaje_vacio"><h4>O utilice los filtros para personalizar su búsqueda</h4><a class="hidden-desktop" id="ver_filtros" href="#" consulta="todo">Filtrar manualmente</a></div>`;
 
@@ -19,4 +21,14 @@ function remove_html_filtroAño(){
     filtro_año_div.innerHTML="";
 }
 
-export{set_html_menuInicial,set_html_filtroAño,remove_html_filtroAño};
+let loading_div=document.getElementById("loading_top")
+
+async function show_loadingDiv(){
+    //Lo mostramos y lo quitamos luego de cierto tiempo
+    loading_div.style.display="block";
+    await sleep(200);
+    loading_div.style.display="none";
+    //setTimeout(()=>{loading_div.style.display="none"},300);
+}
+
+export{set_html_menuInicial,set_html_filtroAño,remove_html_filtroAño,show_loadingDiv};

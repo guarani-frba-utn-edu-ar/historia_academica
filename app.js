@@ -2,14 +2,14 @@ import { set_materias } from "./filtro.js";
 import { materias_objs } from "./materias.js";
 import {exams_objs} from "./examenes.js";
 import { parse_start,parse_exams } from "./html_materias.js";
-import { set_html_menuInicial,set_html_filtroAño, remove_html_filtroAño } from "./html_fijos.js";
+import { set_html_menuInicial,set_html_filtroAño, remove_html_filtroAño, show_loadingDiv } from "./html_fijos.js";
 
 window.show_hide_exams=show_hide_exams;
 
 
 let afterFiltro_mats=[];
 let materia_data;
-function apply_filtros(filtro_id,on){
+async function apply_filtros(filtro_id,on){
     afterFiltro_mats=set_materias(filtro_id,on);
     
     //Si se esta usando alguno de los filtros
@@ -22,7 +22,7 @@ function apply_filtros(filtro_id,on){
          materia_data=materias_objs[mat_name];
          html_mats+=parse_start(materia_data);
     }
-    
+    await show_loadingDiv();
     materias_container.innerHTML=html_mats;
     }
     
@@ -34,7 +34,7 @@ function apply_filtros(filtro_id,on){
 
 }
 
-function show_hide_exams(mat_name){
+async function show_hide_exams(mat_name){
     //Traemos el exam container de la materia
     let exams_div=document.getElementById(`${mat_name}_exams`);
     
@@ -48,6 +48,8 @@ function show_hide_exams(mat_name){
       if (!exams){exams=[]};
       
       html_toInsert=parse_exams(materia_data.start_data,exams)
+      
+      await show_loadingDiv();
 
     }
     

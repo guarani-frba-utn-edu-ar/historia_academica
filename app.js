@@ -8,6 +8,7 @@ import { set_html_menuInicial,set_html_filtroAño, remove_html_filtroAño,
 window.show_hide_exams=show_hide_exams;
 
 
+//------------------- APLICAR FILTROS Y MOSTRAR LAS MATERIAS QUE QUEDAN ------------------------
 let afterFiltro_mats=[];
 let materia_data;
 async function apply_filtros(filtro_id,on){
@@ -37,6 +38,7 @@ async function apply_filtros(filtro_id,on){
 
 }
 
+//------------------------ MOSTRAR U OCULTAR EXAMS DE UNA MATERIA ----------------
 async function show_hide_exams(mat_name){
     //Traemos el exam container de la materia
     let exams_div=document.getElementById(`${mat_name}_exams`);
@@ -72,14 +74,14 @@ let materias_container=document.getElementById("listado");
 remove_html_filtroAño();
 set_html_menuInicial(materias_container);
 
-//Tomar checkboxes del filtro
+//--------------------- Tomar checkboxes del filtro --------------------------
 let promocionadas_checkBox=document.getElementById("cursadasPromocionadas");
 let aprobadas_checkBox=document.getElementById("cursadasAprobadas");
 let desaprobadas_checkBox=document.getElementById("cursadasDesaprobadas");
 let ausente_checkBox=document.getElementById("cursadasAusentes");
 let enCurso_checkBox=document.getElementById("enCurso");
 
-//Asignarles la funcion correspóndiente
+//------------------ Asignarles la funcion correspóndiente ---------------------
 promocionadas_checkBox.addEventListener("click",(e)=>{apply_filtros("promocionadas",e.target.checked)});
 aprobadas_checkBox.addEventListener("click",(e)=>{apply_filtros("aprobadas",e.target.checked)})
 desaprobadas_checkBox.addEventListener("click",(e)=>{apply_filtros("desaprobadas",e.target.checked)})

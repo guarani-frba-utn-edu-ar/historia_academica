@@ -216,8 +216,8 @@ const materias_objs=
     
 }
 
-//<a href="#" id="1" onclick="show_hide_exams('${name}')" data-origen="EnCurso">Cerrar</a>
-//<p onclick="show_hide_exams('${name}')">Detalle</p>
+//Funciones para parsear la "start_data" de cada mat, segun su tipo.
+//(se encarga de elegir la correspondiente la funcion "parse_start()" en "./html_materias.js")
 function promocionada_parseStart(name,data){
   let start_html=`<div class="catedras" materia="87"><h3 class="titulo-corte">${data.name} (${data.num_id})</h3><div class="catedra" encurso="Aprobado"><div class="catedra_nombre"><span class=""><strong>Promocion </strong> - ${data.nota_gen} - Promocionado ${data.fecha} - Libro ${data.libro} - Folio - ${data.folio}  <strong></strong> - <button class="showHide_exams_btn" onclick="show_hide_exams('${name}')">Detalle</button></span></div>
   <div id="${name}_exams"></div>`

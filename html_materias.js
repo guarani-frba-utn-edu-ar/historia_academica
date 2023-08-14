@@ -1,3 +1,6 @@
+//######################## FUNCIONES PARA PARSEAR EL HTML, ###################### 
+//############### TANTO DE LAS MATS COMO DE SUS EXAMS, CON LA DATA QUE SE LES MANDE. #############
+
 import { parseStart_functions } from "./materias.js";
 
 //------------------------ PARTE DE DATA GENERAL DE LA MATERIA --------------------

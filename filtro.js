@@ -1,3 +1,5 @@
+//############# IMPLEMENTACION DE LA LOGICA DEL FILTRO ###########################
+
 
 const filtros={
     "promocionadas":["analisis_1","algoritmos","arquitectura","ing_y_soc","discreta","sis_y_org","quimica"],

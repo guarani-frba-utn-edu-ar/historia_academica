@@ -28,7 +28,23 @@ async function show_loadingDiv(){
     loading_div.style.display="block";
     await sleep(200);
     loading_div.style.display="none";
-    //setTimeout(()=>{loading_div.style.display="none"},300);
 }
 
-export{set_html_menuInicial,set_html_filtroAño,remove_html_filtroAño,show_loadingDiv};
+
+let pdf_icon_div=document.getElementById("pdf_div");
+let excel_icon_div=document.getElementById("excel_div");
+
+function set_html_iconos(){
+    pdf_icon_div.innerHTML=`<div class="pull-right"><a id="pdf_btn" target="_blank" class="btn no-ajax" title="Generar pdf"><i class="g3w-icono-pdf"></i></a></div>`;
+    excel_icon_div.innerHTML=`<div class="pull-right visible-desktop"><a id="xls_btn" target="_blank" class="btn no-ajax" title="Generar xls"><i class="g3w-icono-xls"></i></a></div>`;
+
+}
+
+function remove_html_iconos(){
+    pdf_icon_div.innerHTML="";
+    excel_icon_div.innerHTML="";
+
+}
+
+export{set_html_menuInicial,set_html_filtroAño,remove_html_filtroAño,
+      show_loadingDiv,set_html_iconos,remove_html_iconos};

@@ -2,7 +2,8 @@ import { set_materias } from "./filtro.js";
 import { materias_objs } from "./materias.js";
 import {exams_objs} from "./examenes.js";
 import { parse_start,parse_exams } from "./html_materias.js";
-import { set_html_menuInicial,set_html_filtroAño, remove_html_filtroAño, show_loadingDiv } from "./html_fijos.js";
+import { set_html_menuInicial,set_html_filtroAño, remove_html_filtroAño, 
+         show_loadingDiv,set_html_iconos,remove_html_iconos } from "./html_fijos.js";
 
 window.show_hide_exams=show_hide_exams;
 
@@ -15,6 +16,7 @@ async function apply_filtros(filtro_id,on){
     //Si se esta usando alguno de los filtros
     if (afterFiltro_mats.length!=0){
       set_html_filtroAño();
+      set_html_iconos();
       
       let html_mats="";
 
@@ -29,6 +31,7 @@ async function apply_filtros(filtro_id,on){
     //Si no se esta usando ninguno
     else{
       remove_html_filtroAño();
+      remove_html_iconos();
       set_html_menuInicial(materias_container);
     }
 
@@ -88,11 +91,7 @@ enCurso_checkBox.addEventListener("click",(e)=>{apply_filtros("en_curso",e.targe
 /*---------TODO----------------
 -Hacer todo un toq mas prolijo
 
--Poner el coso de cargando. (meter un div dentro del div "navbar user-navbar clearfix")
-
 -Solucionar que desaparezcan las materias al sacar un filtro(aun perteneciendo a otro activo)
-
--Hacer q se puedan ver los iconos que faltan
 
 */
 

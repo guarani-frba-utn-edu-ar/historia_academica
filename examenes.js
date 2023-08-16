@@ -43,11 +43,17 @@ const exams_objs={
         {fecha:"29/06/2022",descr:"2° Parcial",tipo:"Parcial",nota:"9 (NUEVE)",resultado:"Aprobado"},
     ],
 
-    "fisica_1":[],
+    "fisica_1":[
+        {fecha:"09/08/2023",descr:"1° Parcial",tipo:"Parcial",nota:"5 (CINCO)",resultado:"Reprobado"},
+    ],
 
-    "analisis_de_sist":[],
+    "analisis_de_sist":[
+        {fecha:"14/08/2023",descr:"1° Parcial",tipo:"Parcial",nota:"9 (NUEVE)",resultado:"Aprobado"},
+    ],
 
-    "analisis_2":[],
+    "analisis_2":[
+        {fecha:"07/07/2023",descr:"1° Parcial",tipo:"Parcial",nota:"6 (SEIS)",resultado:"Aprobado"}
+    ],
 
     "sintax_y_semant":[
         {fecha:"14/07/2022",descr:"1° Parcial",tipo:"Parcial",nota:"9 (NUEVE)",resultado:"Aprobado"},

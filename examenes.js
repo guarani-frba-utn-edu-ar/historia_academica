@@ -45,23 +45,36 @@ const exams_objs={
 
     "fisica_1":[
         {fecha:"09/08/2023",descr:"1° Parcial",tipo:"Parcial",nota:"5 (CINCO)",resultado:"Reprobado"},
+        {fecha:"22/11/2023",descr:"2° Parcial",tipo:"Parcial",nota:"6 (SEIS)",resultado:"Aprobado"},
+        //{fecha:"09/08/2023",descr:"1° Recuperatorio 1° Parcial",tipo:"Recuperatorio",nota:"7 (SIETE)",resultado:"Aprobado"},
+
     ],
 
     "analisis_de_sist":[
         {fecha:"14/08/2023",descr:"1° Parcial",tipo:"Parcial",nota:"9 (NUEVE)",resultado:"Aprobado"},
+        {fecha:"13/11/2023",descr:"2° Parcial",tipo:"Parcial",nota:"8 (OCHO)",resultado:"Aprobado"},
+
     ],
 
     "analisis_2":[
-        {fecha:"07/07/2023",descr:"1° Parcial",tipo:"Parcial",nota:"6 (SEIS)",resultado:"Aprobado"}
+        {fecha:"07/07/2023",descr:"1° Parcial",tipo:"Parcial",nota:"7 (SIETE)",resultado:"Aprobado"},
+        {fecha:"24/11/2023",descr:"2° Parcial",tipo:"Parcial",nota:"8 (OCHO)",resultado:"Aprobado"},
     ],
 
     "sintax_y_semant":[
-        {fecha:"14/07/2022",descr:"1° Parcial",tipo:"Parcial",nota:"9 (NUEVE)",resultado:"Aprobado"},
+        {fecha:"27/05/2023",descr:"1° Parcial",tipo:"Parcial",nota:"8 (OCHO)",resultado:"Aprobado"},
+        {fecha:"14/07/2023",descr:"2° Parcial",tipo:"Parcial",nota:"8 (OCHO)",resultado:"Aprobado"}
     ],
 
-    "paradigmas_prog":[],
+    "paradigmas_prog":[
+        {fecha:"26/09/2023",descr:"1° Parcial",tipo:"Parcial",nota:"9 (NUEVE)",resultado:"Aprobado"},
+        {fecha:"21/11/2023",descr:"1° Trabajo Practico",tipo:"Trabajo Practico",nota:"7 (SIETE)",resultado:"Aprobado"},
+    ],
 
-    "ingles_2":[]
+    "ingles_2":[
+        {fecha:"26/10/2023",descr:"1° Parcial",tipo:"Parcial",nota:"8 (OCHO)",resultado:"Aprobado"},
+        {fecha:"30/11/2022",descr:"2° Parcial",tipo:"Parcial",nota:"8 (OCHO)",resultado:"Aprobado"},
+    ]
 }
 
 export {exams_objs};

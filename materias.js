@@ -176,7 +176,7 @@ const materias_objs=
           fecha:"15/03/2023",
           libro:undefined,
           folio:undefined,
-          periodo_lectivo:"Grado Anual 2023",
+          periodo_lectivo:"Grado Primer Cuatrimestre 2023",
           comision:"K2064"
         },
     },

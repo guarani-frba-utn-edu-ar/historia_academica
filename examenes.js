@@ -46,7 +46,7 @@ const exams_objs={
     "fisica_1":[
         {fecha:"09/08/2023",descr:"1° Parcial",tipo:"Parcial",nota:"5 (CINCO)",resultado:"Reprobado"},
         {fecha:"22/11/2023",descr:"2° Parcial",tipo:"Parcial",nota:"6 (SEIS)",resultado:"Aprobado"},
-        //{fecha:"09/08/2023",descr:"1° Recuperatorio 1° Parcial",tipo:"Recuperatorio",nota:"7 (SIETE)",resultado:"Aprobado"},
+        {fecha:"09/08/2023",descr:"1° Recuperatorio 1° Parcial",tipo:"Recuperatorio",nota:"7 (SIETE)",resultado:"Aprobado"},
 
     ],
 
